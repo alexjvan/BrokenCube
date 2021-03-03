@@ -1,0 +1,6 @@
+main: com.brokencube.api.API
+name: API
+version: 0.1
+author: alexjvan
+website: alexvanmatre.com
+prefix: API

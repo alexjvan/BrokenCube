@@ -24,6 +24,10 @@ hs_err_pid*
 
 src/workspace/.metadata/
 src/workspace/.recommenders/
+src/workspace/API/.settings/
+src/workspace/Basics/.settings/
+src/workspace/Civilizations/.settings/
+src/workspace/Economy/.settings/
 docs/
 src/integrations/spigot-1.9/apache-maven-3.6.0
 src/integrations/spigot-1.9/BuildData
