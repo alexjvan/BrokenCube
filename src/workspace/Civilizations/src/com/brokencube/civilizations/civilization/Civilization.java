@@ -1,13 +1,10 @@
 package com.brokencube.civilizations.civilization;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.bukkit.Location;
 
 import com.brokencube.civilizations.api.Ownership;
-import com.brokencube.civilizations.api.PrivacyStatus;
 import com.brokencube.civilizations.world.CivilizationsWorldChunk;
 
 public class Civilization extends Ownership {
@@ -32,9 +29,5 @@ public class Civilization extends Ownership {
 
 	public Civilization(String name, String owner) {
 		super(name, owner);
-	}
-	
-	public Civilization(File f) throws FileNotFoundException {
-		super(f);
 	}
 }

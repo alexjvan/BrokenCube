@@ -5,22 +5,22 @@ import java.util.List;
 
 import com.brokencube.api.API;
 
-public class UserRegister {
-	private List<User> users  = new ArrayList<User>();
+public class UserRegister<T extends User>  {
+	private List<T> users  = new ArrayList<T>();
 	private Console console;
 	
 	public UserRegister(API instance) {
 		this.console = new Console(instance);
 	}
 	
-	public void addUserToRegister(User user) {
+	public void addUserToRegister(T user) {
 		if(users.size() != 0)
 			binSearchAdd(user, 0, users.size() - 1);
 		else
 			users.add(user);
 	}
 	
-	private void binSearchAdd(User u, int left, int right) {
+	private void binSearchAdd(T u, int left, int right) {
 		if(left < right) {
 			int mid = left + right / 2;
 			if(users.get(mid).username.equalsIgnoreCase(u.username))
@@ -39,7 +39,7 @@ public class UserRegister {
 		}
 	}
 	
-	public List<User> getAllUsers() {
+	public List<T> getAllUsers() {
 		return users;
 	}
 	

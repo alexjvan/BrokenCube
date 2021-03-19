@@ -21,6 +21,7 @@ import com.brokencube.api.ranks.commands.Command_Rank;
 import com.brokencube.api.server.Database;
 import com.brokencube.api.server.commands.Command_DB;
 import com.brokencube.api.user.Console;
+import com.brokencube.api.user.User;
 import com.brokencube.api.user.UserRegister;
 import com.brokencube.api.user.listeners.Event_PlayerJoin_DB;
 import com.brokencube.api.worlds.WorldManager;
@@ -80,8 +81,10 @@ public class API extends JavaPlugin {
 		cr = new CommandRegister();
 		pr = new PermissionsRegister(this);
 		// do this here cuz throw error that rm doesn't exist otherwise
-		rm.console = new Console(this);
-		ur = new UserRegister(this);
+		// Check if this is null here, if not a different type of user is being used for the server (ex: CivsUser)
+		if(ur == null)
+			ur = new UserRegister<User>(this);
+		rm.console = ur.getConsole();
 		
 		// CONFIG
 		conf.tryAddValue("bp.allowBreak", false);
@@ -142,6 +145,10 @@ public class API extends JavaPlugin {
 	
 	public Database getDB() {
 		return this.db;
+	}
+	
+	public void setUR(UserRegister set) {
+		this.ur = set;
 	}
 	
 	public UserRegister getUR() {

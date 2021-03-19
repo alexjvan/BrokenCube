@@ -5,16 +5,17 @@ import java.util.concurrent.TimeUnit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.brokencube.api.API;
-import com.brokencube.api.local.ConfigFile;
+import com.brokencube.api.economy.Economy;
+import com.brokencube.api.user.UserRegister;
+import com.brokencube.civilizations.api.CivilizationsUser;
 
 public class Civilizations extends JavaPlugin {
 	private API api;
 	
-	ConfigFile gridFile;
-	ConfigFile townsFile;
+	Economy econ;
 	
 	@Override
-	public void onEnable() {
+	public void onLoad() {
 		api = API.instance;
 		while(api == null) {
 			api = API.instance;
@@ -22,15 +23,22 @@ public class Civilizations extends JavaPlugin {
 				TimeUnit.SECONDS.sleep(1);
 			} catch (InterruptedException e) { }
 		}
+		api.setUR(new UserRegister<CivilizationsUser>(api));
+	}
+	
+	@Override
+	public void onEnable() {
 		api.getPlug().registerPlugin(this, "Basics");
-		
-		gridFile = new ConfigFile(api, "gridData.yml");
-		townsFile = new ConfigFile(api, "townsData.yml");
+		// Set economy
+		econ = new Economy(api, "civs");
+		// Load civs and empires
 	}
 	
 	@Override
 	public void onDisable() {
-		
+		this.econ.updateDB();
 	}
+
+	public Economy getEcon() { return this.econ; }
 	
 }

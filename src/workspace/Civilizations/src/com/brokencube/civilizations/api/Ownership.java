@@ -37,9 +37,4 @@ public abstract class Ownership {
 		this.tax = 0;
 	}
 	
-	public Ownership(File f) throws FileNotFoundException {
-		FileReader fr = new FileReader(f);
-		
-	}
-	
 }

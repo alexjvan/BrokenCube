@@ -28,8 +28,7 @@ public class CmdSectionHelp {
 		else
 			name = "<Console>";
 		
-		HashMap<String, ArrayList<CommandBase>> grabbed = usersLists.get(name);
-		grabbed = new HashMap<String, ArrayList<CommandBase>>();
+		usersLists.get(name).clear();
 	}
 	
 	private static void sendHelp(Executor e, String cmdSection, int page) {
