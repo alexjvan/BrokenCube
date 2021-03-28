@@ -25,7 +25,7 @@ public class CivilizationsWorld {
 	}
 	
 	private void loadWorld() {
-
+		api.getDB().getQuery("");
 	}
 	
 	private void expandGrid() {
