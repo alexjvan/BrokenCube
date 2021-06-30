@@ -9,31 +9,36 @@ import com.brokencube.civilizations.civilization.Civilization;
 
 public class CivilizationsUser extends User {
 	Civilizations civs;
-	int balance;
+	double balance;
 	Civilization civ;
 	
 	public CivilizationsUser(Civilizations civs, Player player, int id, String username, String customName, Rank rank, boolean friendsOpen, int xp, int coins, int gems) {
 		super(player, id, username, customName, rank, friendsOpen, xp, coins, gems);
 		this.civs = civs;
-		this.balance = civs.getEcon().getBalance(id);
+		this.balance = civs.getEcon().getBalance(this.username);
 		// Grab civ
+		// TODO
 	}
 	
-	public int getBalance() { return this.balance; }
+	public double getBalance() { return this.balance; }
 	
-	public void setBalance(int amount) {
+	public void setBalance(double amount) {
 		this.balance = amount;
-		this.civs.getEcon().setBalance(id, amount);
+		this.civs.getEcon().setBalance(this.username, amount);
 	}
 	
-	public void addToBalance(int amount) {
+	public void addToBalance(double amount) {
 		this.balance += amount;
-		this.civs.getEcon().addToBalance(id, amount);
+		this.civs.getEcon().addToBalance(this.username, amount);
 	}
 
-	public void removeFromBalance(int amount) {
+	public void removeFromBalance(double amount) {
 		this.balance -= amount;
-		this.civs.getEcon().subtractFromBalance(id, amount);
+		this.civs.getEcon().subtractFromBalance(this.username, amount);
 	}
+	
+	public Civilization getCivilization() { return this.civ; }
+	
+	public void setCivilization(Civilization set) { this.civ = set; }
 	
 }

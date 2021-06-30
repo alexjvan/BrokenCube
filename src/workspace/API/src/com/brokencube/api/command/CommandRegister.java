@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandRegister {
-	public List<Command> commands = new ArrayList<Command>();
+	public List<Command> commands = new ArrayList<>();
 	
 	public void registerCommand(Command com) {
 		commands.add(com);

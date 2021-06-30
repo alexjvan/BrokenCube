@@ -11,7 +11,7 @@ public abstract class Command extends CommandBase {
 	
 	public String starter;
 	
-	public List<SubCommand> children = new ArrayList<SubCommand>();
+	public List<SubCommand> children = new ArrayList<>();
 	
 	Rank lowestPermNeeded;
 
@@ -37,6 +37,10 @@ public abstract class Command extends CommandBase {
 	
 	public String getCommand() {
 		return this.starter;
+	}
+	
+	public API getInstance() { 
+		return this.instance;
 	}
 	
 	public Rank getLowestPermNeeded() {

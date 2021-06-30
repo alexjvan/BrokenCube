@@ -36,14 +36,45 @@ public class Command_GM extends Command {
 		if(split.length == 1) {
 			toggle.exe(e, split);
 		} else if(split.length == 2) {
-			if(split[1].equalsIgnoreCase("toggle"))
+			if(split[1].equalsIgnoreCase("adventure")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("creative")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("spectator")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("survival")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("toggle"))
 				toggle.exe(e, split);
-			else
-				throw new CommandNotFoundException();
+			else if(split[1].equalsIgnoreCase("view")) {
+				// TODO
+			} else
+				toggle.exe(e, split);
 		} else if(split.length == 3) {
-			if(split[1].equalsIgnoreCase("toggle"))
+			if(split[1].equalsIgnoreCase("adventure")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("creative")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("default")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("set")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("spectator")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("survival")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("toggle"))
 				toggle.exe(e, split);
-			else
+			else if(split[1].equalsIgnoreCase("view")) {
+				// TODO
+			} else
+				throw new CommandNotFoundException();
+		} else if(split.length == 4) {
+			if(split[1].equalsIgnoreCase("default")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("set")) {
+				// TODO
+			} else
 				throw new CommandNotFoundException();
 		} else
 			throw new CommandNotFoundException();

@@ -14,7 +14,7 @@ import com.brokencube.api.user.User;
 public abstract class CommandBase {
 	public String description = "No description set";
 	public String useCase = "No use case set";
-	public List<String> alternatives = new ArrayList<String>();
+	public List<String> alternatives = new ArrayList<>();
 	
 	public void addAlternative(String useCase) {
 		this.alternatives.add(useCase);

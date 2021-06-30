@@ -25,9 +25,9 @@ public class Database {
 	public Database(API instance) {
 		this.instance = instance;
 		
-		this.url = (String)instance.getConf().get("db.host");
-		this.user = (String)instance.getConf().get("db.user");
-		this.password = (String)instance.getConf().get("db.password");
+		this.url = (String)instance.getConf().database.host;
+		this.user = (String)instance.getConf().database.user;
+		this.password = (String)instance.getConf().database.password;
 		
 		if(this.url == "" || this.user == "" || this.password == "") {
 			instance.getLogger().log(Level.SEVERE, "Part of the database record is not set in the config - exiting.");
@@ -145,7 +145,7 @@ public class Database {
 		try {
 			ResultSetMetaData rsmd = rs.getMetaData();
 			int cols = rsmd.getColumnCount();
-			List<String[]> data = new ArrayList<String[]>();
+			List<String[]> data = new ArrayList<>();
 			
 			while(rs.next()) {
 				String[] newData = new String[cols];

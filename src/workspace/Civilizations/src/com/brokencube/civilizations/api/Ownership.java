@@ -1,8 +1,5 @@
 package com.brokencube.civilizations.api;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +16,8 @@ public abstract class Ownership {
 	public PrivacyStatus pStatus;
 	public List<String> invites;
 	
-	public int bank;
-	
-	public int tax;
+	public double bank;
+	public double tax;
 	
 	public Ownership(String name, String owner) {
 		this.name = name;

@@ -42,7 +42,7 @@ public class Event_ItemEvents_BlockProtection implements Listener {
 	}
 	
 	private boolean check(Event e, User u) {
-		boolean allowItem = (boolean)instance.getConf().get("bp.allowItem");
+		boolean allowItem = (boolean)instance.getConf().blockProtection.allowItem;
 		if(!allowItem) {
 			if(!u.hasPermission("bp.override.item")) {
 				return true;

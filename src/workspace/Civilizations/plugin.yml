@@ -1,0 +1,7 @@
+main: com.brokencube.civilizations.Civilizations
+name: Civilizations
+version: 0.1
+author: alexjvan
+website: alexvanmatre.com
+prefix: Civilizations
+softdepend: [API]

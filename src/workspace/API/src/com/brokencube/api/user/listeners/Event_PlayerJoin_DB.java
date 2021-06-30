@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import com.brokencube.api.API;
+import com.brokencube.api.chat.ColorReplacer;
 import com.brokencube.api.ranks.Rank;
 import com.brokencube.api.server.Database;
 import com.brokencube.api.server.events.UserAddedToRegisterEvent;
@@ -53,6 +54,7 @@ public class Event_PlayerJoin_DB implements Listener {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addUser(Player p, String[] data) {
 		int id = Integer.parseInt(data[0]);
 		String username = data[1];
@@ -64,6 +66,7 @@ public class Event_PlayerJoin_DB implements Listener {
 		int rubies = Integer.parseInt(data[7]);
 
 		User u = new User(p, id, username, customName, r, friendsOpen, xp, coins, rubies);
+		u.getPlayer().setPlayerListName(ColorReplacer.colorize(u.rank.prefix + "" + u.getUserName()));
 
 		this.instance.getUR().addUserToRegister(u);
 		UserAddedToRegisterEvent event = new UserAddedToRegisterEvent(u);

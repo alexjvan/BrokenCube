@@ -6,7 +6,7 @@ import java.util.List;
 import com.brokencube.api.API;
 
 public class UserRegister<T extends User>  {
-	private List<T> users  = new ArrayList<T>();
+	private List<T> users  = new ArrayList<>();
 	private Console console;
 	
 	public UserRegister(API instance) {

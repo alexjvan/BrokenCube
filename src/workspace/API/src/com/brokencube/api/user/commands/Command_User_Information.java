@@ -19,11 +19,12 @@ public class Command_User_Information extends SubCommand {
 	@Override
 	public void exe(Executor e, String[] split)
 			throws CommandNotFoundException, IncorrectArgumentsException, NoPermsException {
-		
+		// TODO
 	}
 	
 	public void sendInfo(Executor to, User about) {
 		to.sendMessage(Messages.general + "-------===[&b" + about.username + Messages.general +"]===-------");
+		// TODO
 	}
 	
 }

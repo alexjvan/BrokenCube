@@ -1,7 +1,6 @@
 package com.brokencube.api.server.commands;
 
 import com.brokencube.api.API;
-import com.brokencube.api.Messages;
 import com.brokencube.api.command.Command;
 import com.brokencube.api.command.exceptions.CommandNotFoundException;
 import com.brokencube.api.command.exceptions.IncorrectArgumentsException;
@@ -24,11 +23,7 @@ public class Command_DB extends Command {
 	@Override
 	public void exe(Executor e, String[] split) throws CommandNotFoundException, IncorrectArgumentsException, NoPermsException {
 		if(split.length == 1) {
-			try {
-				status.exe(e, split);
-			} catch(NoPermsException ex) {
-				e.sendMessage(Messages.nopermsbut);
-			}
+			status.exe(e, split);
 		} else if(split.length == 2 ) {
 			if(split[1].equalsIgnoreCase("reset"))
 				reset.exe(e, split);
@@ -37,7 +32,7 @@ public class Command_DB extends Command {
 			else
 				throw new CommandNotFoundException();
 		} else
-			throw new IncorrectArgumentsException();
+			throw new CommandNotFoundException();
 	}
 	
 }

@@ -34,7 +34,7 @@ public class Command_GM_Toggle extends SubCommand {
 	public void exe(Executor e, String[] args) throws CommandNotFoundException, NoPermsException {
 		if(!e.hasPermission(permString))
 			throw new NoPermsException();
-		if(args.length == 3) {
+		if(args.length == 3 || !args[1].equalsIgnoreCase("toggle")) {
 			if(e.hasPermission("gm.toggle.others")) {
 				User target;
 				if(args[2].equalsIgnoreCase("self")) {

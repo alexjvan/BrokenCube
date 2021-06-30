@@ -19,7 +19,7 @@ public class ConfigFile {
 	String filename = "config.yml";
 	File file;
 	FileConfiguration config;
-	Map<String, Object> values = new HashMap<String, Object>();
+	Map<String, Object> values = new HashMap<>();
 	
 	public ConfigFile(API instance) {
 		this.instance = instance;
@@ -48,7 +48,6 @@ public class ConfigFile {
 		}
 		
 		config = YamlConfiguration.loadConfiguration(this.file);
-		config.options().copyDefaults();
 	}
 	
 	public void tryAddValue(String name, Object value) {
@@ -66,7 +65,7 @@ public class ConfigFile {
 	}
 	
 	public String[] emptyValues() {
-		List<String> empty = new ArrayList<String>();
+		List<String> empty = new ArrayList<>();
 		String[] keys = (String[])values.keySet().toArray();
 		for(int i = 0; i < keys.length; i++) {
 			if(values.get(keys[i]) == null)
@@ -82,9 +81,8 @@ public class ConfigFile {
 	}
 	
 	public void save() {
-		for(Map.Entry<String, Object> entry : values.entrySet()) {
+		for(Map.Entry<String, Object> entry : values.entrySet())
 			config.set(entry.getKey(), entry.getValue());
-		}
 		try {
 			config.save(file);
 		} catch (IOException e) {

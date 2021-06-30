@@ -17,7 +17,7 @@ public class Event_BlockBreakEvent_BlockProtection implements Listener {
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e) {
 		User u = (User)instance.getUR().getExecutorFromUsername(e.getPlayer().getName());
-		boolean allowBreak = (boolean)instance.getConf().get("bp.allowBreak");
+		boolean allowBreak = (boolean)instance.getConf().blockProtection.allowBreak;
 		if(!allowBreak) {
 			if(!u.hasPermission("bp.override.break")) {
 				e.setCancelled(true);

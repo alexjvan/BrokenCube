@@ -13,7 +13,7 @@ import com.brokencube.api.user.User;
 public class CmdSectionHelp {
 	
 	// User [CmdSection, []]
-	private static HashMap<String, HashMap<String, ArrayList<CommandBase>>> usersLists = new HashMap<String, HashMap<String, ArrayList<CommandBase>>>();
+	private static HashMap<String, HashMap<String, ArrayList<CommandBase>>> usersLists = new HashMap<>();
 	
 	private static final int numCmdsToSend = 10;
 	
@@ -39,7 +39,7 @@ public class CmdSectionHelp {
 			name = "<Console>";
 		// Check if the user has any lists
 		if(!usersLists.containsKey(name)) {
-			usersLists.put(name, new HashMap<String, ArrayList<CommandBase>>());
+			usersLists.put(name, new HashMap<>());
 		}
 		
 		// Check if the user has the particular list...
@@ -77,7 +77,7 @@ public class CmdSectionHelp {
 	}
 	
 	private static void createList(String name, Executor e, String cmdSection) {
-		ArrayList<CommandBase> cmds = new ArrayList<CommandBase>();
+		ArrayList<CommandBase> cmds = new ArrayList<>();
 		
 		List<Command> parents = API.instance.getCR().commands;
 		
@@ -99,7 +99,7 @@ public class CmdSectionHelp {
 			if(e.isConsole() || e.rank.inherits(c.getLowestPermNeeded()))
 				cmds.add(c);
 		} else {
-			ArrayList<CommandBase> cmdTree = new ArrayList<CommandBase>();
+			ArrayList<CommandBase> cmdTree = new ArrayList<>();
 			cmdTree.add(c);
 			boolean adding = false;
 			for(int i = 0; i < c.children.size(); i++) {

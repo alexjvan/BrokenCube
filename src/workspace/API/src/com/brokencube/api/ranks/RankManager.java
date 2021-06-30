@@ -9,7 +9,7 @@ import com.brokencube.api.user.Console;
 public class RankManager {
 	private API instance;
 	public Console console;
-	public List<Rank> ranks = new ArrayList<Rank>();
+	public List<Rank> ranks = new ArrayList<>();
 	
 	public RankManager(API instance) {
 		this.instance = instance;
@@ -21,7 +21,7 @@ public class RankManager {
 		List<String[]> results = instance.getDB().getQuery("SELECT id, name, prefix, booster FROM ranks");
 		for(int i = 0; i < results.size(); i++) {
 			String[] cur = results.get(i);
-			Rank newRank = new Rank(instance, Integer.parseInt(cur[0]), cur[1], cur[2], Integer.parseInt(cur[3]));
+			Rank newRank = new Rank(Integer.parseInt(cur[0]), cur[1], cur[2], Integer.parseInt(cur[3]));
 			ranks.add(newRank);
 		}
 	}

@@ -3,22 +3,17 @@ package com.brokencube.api.ranks;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.brokencube.api.API;
-
 public class Rank {
-	private API instance;
-	
 	public int num;
 	public String name;
 	public String prefix;
 	public int booster;
-	public List<Rank> inherits = new ArrayList<Rank>();
-	public List<Rank> inheritedBy = new ArrayList<Rank>();
+	public List<Rank> inherits = new ArrayList<>();
+	public List<Rank> inheritedBy = new ArrayList<>();
 	
-	public List<String> perms = new ArrayList<String>();
+	public List<String> perms = new ArrayList<>();
 	
-	public Rank(API instance, int num, String name, String prefix, int booster) {
-		this.instance = instance;
+	public Rank(int num, String name, String prefix, int booster) {
 		this.num = num;
 		this.name = name;
 		this.prefix = prefix;

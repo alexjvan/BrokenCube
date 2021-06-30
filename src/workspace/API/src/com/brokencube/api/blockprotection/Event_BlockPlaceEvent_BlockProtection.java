@@ -17,7 +17,7 @@ public class Event_BlockPlaceEvent_BlockProtection implements Listener {
 	@EventHandler
 	public void onBlockPlace(BlockPlaceEvent e) {
 		User u = (User)instance.getUR().getExecutorFromUsername(e.getPlayer().getName());
-		boolean allowPlace = (boolean)instance.getConf().get("bp.allowPlace");
+		boolean allowPlace = (boolean)instance.getConf().blockProtection.allowPlace;
 		if(!allowPlace) {
 			if(!u.hasPermission("bp.override.place")) {
 				e.setCancelled(true);

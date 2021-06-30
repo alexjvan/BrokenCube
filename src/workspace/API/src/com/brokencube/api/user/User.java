@@ -17,7 +17,7 @@ public class User extends Executor {
 	public int coins;
 	public int gems;
 	
-	public List<String> additionalPermissions = new ArrayList<String>();
+	public List<String> additionalPermissions = new ArrayList<>();
 	
 	public boolean firstLogin = false;
 	

@@ -20,7 +20,9 @@ public class Command_Server extends Command {
 	@Override
 	public void exe(Executor e, String[] split) throws CommandNotFoundException, IncorrectArgumentsException, NoPermsException {
 		if(split.length == 2) {
-			if(split[1].equalsIgnoreCase("stop"))
+			if(split[1].equalsIgnoreCase("reload")) {
+				// TODO
+			} else if(split[1].equalsIgnoreCase("stop"))
 				stop.exe(e, split);
 			else
 				throw new CommandNotFoundException();

@@ -27,24 +27,28 @@ public class Command_Rank_View extends SubCommand {
 	
 	@Override
 	public void userExe(User u, String[] split) throws CommandNotFoundException, IncorrectArgumentsException, NoPermsException {
-		exe(u, split);
+			exe(u, split);
 	}
 
 	@Override
 	public void exe(Executor e, String[] split) throws CommandNotFoundException, IncorrectArgumentsException, NoPermsException {
-		if(split.length == 2) {
+		if(split.length == 1 || split.length == 2 && split[1].equalsIgnoreCase("view")) {
 			e.sendMessage(Messages.success+"You have the rank of "+((User) e).rank.prefix+Messages.success+".");
-		} else if(split.length == 3) {
+		} else {
 			if(!e.hasPermission(permString))
 				throw new NoPermsException();
 			
-			User target = (User)instance.getUR().getExecutorFromUsername(split[2]);
+			String targetName;
+			if(split.length == 3)
+				targetName = split[2];
+			else
+				targetName = split[1];
+			User target = (User)instance.getUR().getExecutorFromUsername(targetName);
 			if(target == null) {
-				e.sendMessage(Messages.error+"That player (&b"+split[2]+Messages.error+") does not exist or is not online!");
+				e.sendMessage(Messages.error+"That player (&b"+targetName+Messages.error+") does not exist or is not online!");
 				return;
 			}
-			e.sendMessage("&b"+split[2]+Messages.success+" has the rank of "+target.rank.prefix);
-		} else
-			throw new IncorrectArgumentsException();
+			e.sendMessage("&b"+targetName+Messages.success+" has the rank of "+target.rank.prefix);
+		}
 	}
 }

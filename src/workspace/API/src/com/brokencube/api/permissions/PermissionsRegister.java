@@ -28,6 +28,12 @@ public class PermissionsRegister {
 			assignPermission(row[0], instance.getRM().getRankFromNum(Integer.parseInt(row[1])));
 		}
 	}
+	
+	public void addPermission(String perm) {
+		if(!perms.containsKey(perm)) {
+			perms.put(perm, instance.getRM().getRankFromName("Undefined"));
+		}
+	}
 
 	public void assignPermission(String perm, Rank rank) {
 		perms.put(perm, rank);
