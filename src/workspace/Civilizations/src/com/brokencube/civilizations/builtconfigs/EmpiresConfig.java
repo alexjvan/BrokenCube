@@ -20,7 +20,7 @@ public class EmpiresConfig {
 	
 	@SuppressWarnings("unchecked")
 	private void load() {
-		conf.tryAddValue("civs", new ArrayList<Empire>());
+		conf.tryAddValue("empires", new ArrayList<Empire>());
 		
 		empires = (ArrayList<Empire>)conf.get("empires");
 	}

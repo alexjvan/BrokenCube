@@ -13,6 +13,7 @@ import com.brokencube.civilizations.builtconfigs.CivsConfig;
 import com.brokencube.civilizations.builtconfigs.EmpiresConfig;
 import com.brokencube.civilizations.civilization.CivilizationsManager;
 import com.brokencube.civilizations.civilization.commands.Command_Civilizations;
+import com.brokencube.civilizations.empire.EmpiresManager;
 import com.brokencube.civilizations.world.CivilizationsWorldManager;
 
 public class Civilizations extends JavaPlugin {
@@ -25,6 +26,7 @@ public class Civilizations extends JavaPlugin {
 	private CivsConfig civs;
 	private EmpiresConfig empires;
 
+	private EmpiresManager empiresManager;
 	private CivilizationsWorldManager civworldmanager;
 	private CivilizationsManager civManager;
 	
@@ -51,6 +53,7 @@ public class Civilizations extends JavaPlugin {
 		// Set economy
 		econ = new Economy(api, "civs");
 		// Load civs and empires
+		empiresManager = new EmpiresManager(api, empires);
 		civManager = new CivilizationsManager(api, civs);
 		// Load worlds
 		civworldmanager = new CivilizationsWorldManager(api);
@@ -70,6 +73,7 @@ public class Civilizations extends JavaPlugin {
 	}
 
 	public Economy getEcon() { return this.econ; }
+	public EmpiresManager getEmpiresManager() { return this.empiresManager; }
 	public CivilizationsManager getCivManager() { return this.civManager; }
 	public CivilizationsWorldManager getWorldManager() { return this.civworldmanager; }
 	

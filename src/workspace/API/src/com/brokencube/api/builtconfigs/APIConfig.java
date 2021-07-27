@@ -14,6 +14,7 @@ public class APIConfig {
 	public Chat chat;
 	public Database database;
 	public Defaults defaults;
+	public MOTD motd;
 	public List<Object> permissionOverride;
 	public Worlds worlds;
 	
@@ -46,6 +47,9 @@ public class APIConfig {
 
 		conf.tryAddValue("defaults.gamemode", 2);
 
+		conf.tryAddValue("motd.lineOne", "");
+		conf.tryAddValue("motd.lineTwo", "");
+		
 		conf.tryAddValue("permissionOverride", new ArrayList<Object>());
 		
 		conf.tryAddValue("worlds.default.name", "World");
@@ -74,6 +78,9 @@ public class APIConfig {
 		database.password = (String)conf.get("db.password");
 		
 		defaults.gamemode = (int)conf.get("defaults.gamemode");
+		
+		motd.lineOne = (String)conf.get("motd.lineOne");
+		motd.lineTwo = (String)conf.get("motd.lineTwo");
 
 		permissionOverride = (ArrayList<Object>)conf.get("permissionOverride");
 		
@@ -105,6 +112,9 @@ public class APIConfig {
 		conf.set("db.password", database.password);
 
 		conf.set("defaults.gamemode", defaults.gamemode);
+		
+		conf.set("motd.lineOne", motd.lineOne);
+		conf.set("motd.lineTwo", motd.lineTwo);
 
 		conf.set("permissionOverride", permissionOverride);
 		
@@ -144,6 +154,11 @@ public class APIConfig {
 
 	public class Defaults {
 		public int gamemode;
+	}
+	
+	public class MOTD {
+		public String lineOne;
+		public String lineTwo;
 	}
 	
 	public class Worlds {

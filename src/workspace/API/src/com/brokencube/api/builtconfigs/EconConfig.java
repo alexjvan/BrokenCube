@@ -1,6 +1,7 @@
 package com.brokencube.api.builtconfigs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.brokencube.api.API;
@@ -21,6 +22,7 @@ public class EconConfig {
 		List<String> users = (ArrayList<String>)conf.get("users");
 		List<Double> bals = (ArrayList<Double>)conf.get("balances");
 
+		balances = new HashMap<>();
 		for(int i = 0; i < users.size(); i++)
 			balances.put(users.get(i), bals.get(i));
 	}

@@ -50,12 +50,12 @@ public class Command_Civilizations_Create extends SubCommand {
 			return;
 		}
 		// If in valid location
-		CivilizationsWorld civworld = Civilizations.getInstance().getWorldManager().getCivWorldFromWorld(u.getPlayer().getWorld());
+		CivilizationsWorld civworld = Civilizations.getInstance().getWorldManager().getCivWorldFromWorld(u.getWorld());
 		if(civworld == null) {
 			u.sendMessage(Messages.worldNoExist);
 			return;
 		}
-		CivilizationsWorldChunk chunk = civworld.getChunk(u.getPlayer().getLocation());
+		CivilizationsWorldChunk chunk = civworld.getChunk(u.getLocation());
 		if(chunk.landType != LandType.Wilderness) {
 			u.sendMessage(Messages.landTaken);
 			return;
@@ -71,14 +71,14 @@ public class Command_Civilizations_Create extends SubCommand {
 		// Create Civilization
 		Civilization newCiv = new Civilization(name, u.getUserName(), true);
 		
-		newCiv.spawn = u.getPlayer().getLocation();
+		newCiv.spawn = u.getLocation();
 		newCiv.home = chunk;
 		newCiv.plots.add(chunk);
 		
 		// update world
 		chunk.landType = LandType.Civilization;
 		chunk.ownedBy = newCiv;
-		Civilizations.getInstance().getWorldManager().getCivWorldFromWorld(u.getPlayer().getWorld()).setChunkData(chunk);
+		Civilizations.getInstance().getWorldManager().getCivWorldFromWorld(u.getWorld()).setChunkData(chunk);
 		
 		// Add new civ to manager
 		Civilizations.getInstance().getCivManager().civs.put(name, newCiv);

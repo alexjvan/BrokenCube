@@ -46,6 +46,8 @@ public class Civilization extends Ownership {
 	public CivilizationsWorldChunk home;
 	public List<CivilizationsWorldChunk> plots;
 	public List<CivilizationsWorldChunk> outposts;
+	
+	public String empire;
 
 	public Civilization(String name, String owner, boolean newCiv) {
 		super(name, owner);

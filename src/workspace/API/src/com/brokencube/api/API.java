@@ -12,6 +12,7 @@ import com.brokencube.api.command.CommandRegister;
 import com.brokencube.api.command.commands.Command_Commands;
 import com.brokencube.api.command.listeners.Event_PlayerCommandPreProcess_AltCmdHandler;
 import com.brokencube.api.command.listeners.Event_ServerCommand_AltCmdHandler;
+import com.brokencube.api.motd.MOTD;
 import com.brokencube.api.permissions.PermissionsRegister;
 import com.brokencube.api.permissions.commands.Command_Perms;
 import com.brokencube.api.plugins.PluginRegister;
@@ -34,7 +35,8 @@ public class API extends JavaPlugin {
 	private PluginRegister plug;
 	private WorldManager wm;
 	
-	APIConfig conf;
+	private APIConfig conf;
+	private MOTD motd;
 	
 	public static API instance;
 	
@@ -72,6 +74,8 @@ public class API extends JavaPlugin {
 		// World Manager
 		wm = new WorldManager(this);
 		
+		motd = new MOTD(this);
+		
 		// ---==Commands==---
 		cr.registerCommand(new Command_BlockProtection(this));
 		cr.registerCommand(new Command_Commands(this));
@@ -95,6 +99,7 @@ public class API extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
+		motd.feedConf();
 		conf.save();
 	}
 	

@@ -20,7 +20,7 @@ public class Event_AsyncPlayerChatEvent_PlayerChatFormatter implements Listener 
 		User u = (User)instance.getUR().getExecutorFromUsername(e.getPlayer().getName());
 		String msg = e.getMessage();
 		
-		String format = (String)instance.getConf().chat.format;
+		String format = instance.getConf().chat.format;
 
 		String formatted = ColorReplacer.colorize(format);
 		
